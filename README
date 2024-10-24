@@ -1,1 +1,56 @@
+Instrucciones mínimas para poner en ejecución el proyecto de API REST
 
+1. Instalar Java JDK:
+   - Asegúrate de tener instalado el Java Development Kit (JDK) en tu sistema. 
+   - Si no está instalado, descárgalo e instálalo desde Oracle(https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) 
+
+2. Instalar Maven:
+   - Verifica si Maven está instalado 
+   - Si no está instalado, descárgalo e instálalo siguiendo las instrucciones de la documentación oficial de Maven (https://maven.apache.org/install.html).
+
+3. Descargar el Proyecto:
+   - Descomprime el archivo descargado en un directorio de tu elección.
+
+4. **Navegar al Directorio del Proyecto**:
+   - Abre una terminal y navega al directorio raíz del proyecto. Por ejemplo:
+     ```bash
+     cd /ruta/al/directorio/api-rest
+     ```
+
+5. **Compilar y Ejecutar el Proyecto**:
+   - Para compilar y ejecutar el proyecto, utiliza el siguiente comando:
+     ```bash
+     mvn spring-boot:run
+     ```
+
+6. Probar la API:
+   - Abre una herramienta como **Postman** o utiliza `curl` para probar los endpoints de la API.
+
+   - Endpoint de Collatz:
+     ```bash
+     curl http://localhost:8080/api/collatz/20
+     ```
+     Respuesta esperada:
+     ```
+     "Secuencia_Collatz:" [20 10 5 16 8 4 2 1]
+     ```
+
+   - Endpoint de FizzBuzz:
+     ```bash
+     curl http://localhost:8080/api/fizzbuzz/15
+     ```
+     Respuesta esperada:
+     ```json
+     {
+       "fizzbuzz_results": [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]
+     }
+     ```
+
+#-Notas Adicionales
+
+- Detener la Aplicación: Para detener la aplicación, puedes presionar `Ctrl + C` en la terminal donde está corriendo.
+- Configuración de la Base de Datos: Si planeas usar una base de datos, asegúrate de configurar las propiedades adecuadamente en `src/main/resources/application.properties`.
+- Ajustar el Puerto: Si el puerto 8080 está en uso, puedes cambiarlo en `application.properties` agregando la línea:
+  ```properties
+  server.port=8081
+  ```
